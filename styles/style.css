@@ -1,0 +1,253 @@
+:root {
+  --bg-color: #f3efec;
+  --text-color: #312a4e;
+  --accent-color: #ffab6b;
+  --main-font: "Raleway";
+  --accent-font: "STIX Two Text";
+}
+
+.theme_dark {
+  --bg-color: #171717;
+  --text-color: #b3b3b3;
+  --accent-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.page {
+  min-inline-size: 360px;
+  margin: 0;
+  background-color: var(--bg-color, #f3efec);
+  font-family: var(--main-font, sans-serif);
+  color: var(--text-color, #312a4e);
+}
+
+p,
+h1,
+h2,
+h3,
+blockquote,
+ul,
+ol,
+li,
+figure {
+  margin: 0;
+}
+
+.header {
+  padding-block-start: 10%;
+}
+
+.heading {
+  font-family: var(--accent-font);
+  font-weight: 600;
+  line-height: 0.9;
+  text-align: center;
+}
+
+.content-section {
+  padding: 0 5vi;
+}
+
+.header__title {
+  margin-block-end: 40px;
+  font-size: clamp(3.75rem, 2.5rem + 5.5556vw, 7.5rem);
+}
+
+.content__title {
+  margin: 7% 0 2.5%;
+  font-size: 30px;
+}
+
+.content__text-block {
+  font-size: 18px;
+}
+
+.content__text-block .content__paragraph:not(:last-of-type) {
+  padding-bottom: 1.5em;
+}
+
+.content__text-block a {
+  color: inherit;
+}
+
+.content__blockquote {
+  inline-size: 75%;
+  margin: 0 auto 1.5em;
+  font-style: italic;
+  line-height: 2;
+}
+
+.content__list {
+  padding: 0 0 0 40px;
+  list-style: none;
+}
+
+.content__list li {
+  position: relative;
+}
+
+.content__list li:not(:last-of-type) {
+  margin-block-end: 10px;
+}
+
+.content__list li::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  inline-size: 15px;
+  block-size: 15px;
+  background-image: url(../images/marker-light.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 2px;
+  left: -25px;
+}
+
+.content__text-block_type_first-lettered
+  .content__paragraph:first-of-type:first-letter {
+  background-color: var(--accent-color);
+  display: inline-block;
+  padding: 0 4px;
+  margin-inline-end: 1px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.content__figure {
+  position: relative;
+  margin: 7% auto;
+  inline-size: calc(100% + 10vi);
+  inset-inline-end: 5vi;
+}
+
+.content__picture {
+  inline-size: 100%;
+}
+
+.content__picture-caption {
+  border-block-end: 1px solid var(--text-color);
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.content__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-block-start: 7%;
+  border: 1px solid var(--text-color);
+  aspect-ratio: 4/3;
+}
+
+.content__card-title {
+  font-size: 60px;
+}
+
+.content__card-subtitle {
+  font-size: 18px;
+}
+
+.colored-text {
+  position: relative;
+  display: inline-block;
+}
+
+.colored-text::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  height: 0.3em;
+  width: 105%;
+  background-color: var(--accent-color);
+  bottom: 20%;
+  left: -2.5%;
+}
+
+.header__menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-block-start: 1px solid var(--text-color);
+  border-block-end: 1px solid var(--text-color);
+  padding-block: 20px;
+}
+
+.header__theme-toggler {
+  list-style: none;
+  padding: none;
+  display: flex;
+  gap: 20px;
+}
+
+.header__theme-button {
+  position: relative;
+  border: none;
+  padding: 0;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 18px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header__theme-button:hover {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.header__theme-button_is-active {
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.header__theme-button_is-active::after {
+  content: "";
+  display: inline-block;
+  height: 0.4em;
+  width: 106%;
+  background-color: var(--accent-color);
+  position: absolute;
+  bottom: 10%;
+  left: -2%;
+  z-index: -1;
+}
+
+.header__theme-button:focus {
+  outline: none;
+}
+
+.header__theme-button:focus-visible {
+  color: var(--text-color);
+  outline: 1px solid var(--text-color);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  padding-block: 2.5%;
+  border-block-start: 1px solid var(--text-color);
+}
+.footer__copyright {
+  font-size: 18px;
+}
+
+.theme_dark
+  .content__text-block_type_first-lettered
+  .content__paragraph:first-of-type:first-letter {
+  border: 1px solid currentColor;
+}
+
+.theme_dark .content__list li::before {
+  background-image: url(../images/marker-dark.svg);
+}
